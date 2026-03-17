@@ -1,0 +1,8 @@
+<!-- Mostrar variable -->
+<h1>Contador: {{counter}}</h1>
+<!-- Mostrar variable como señal -->
+<h1>Contador con señal: {{ counterSignal() }}</h1>
+
+<button (click)="incrementarValor(10)">+10</button>
+<button (click)="reducirValor(5)">-5</button>
+<button (click)="valorOriginal()">Reset</button>

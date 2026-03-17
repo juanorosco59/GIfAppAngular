@@ -1,0 +1,25 @@
+<h3>Agregar: {{ name() }} </h3>
+
+<input type="text" class="form-control" placeholder="Nombre" [value]="name()" (change)="name.set(txtName.value)"
+    (input)="name.set(txtName.value)" #txtName>
+
+<!--
+Input para escribir el nombre del personaje.
+
+type="text"                 → campo de texto
+class="form-control"        → estilo Bootstrap
+placeholder="Nombre"        → texto guía dentro del input
+
+[value]="name()"            → muestra el valor actual de la signal name
+(input)="name.set(...)"     → actualiza la signal mientras el usuario escribe
+(change)="name.set(...)"    → actualiza la signal cuando el input pierde foco
+
+#txtName                    → referencia local del input para acceder a su valor, sirve para poder 
+                              acceder al elemento HTML directamente dentro del template.
+-->
+
+<input type="number" class="form-control mt-2" placeholder="0" [value]="power()" (input)="power.set(+txtPower.value)"
+    #txtPower>
+
+
+<button (click)="addCharacter()" class="btn btn-primary mt-2">Agregar</button>

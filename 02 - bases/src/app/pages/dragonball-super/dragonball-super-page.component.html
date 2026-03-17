@@ -1,0 +1,31 @@
+<h1>Father: Hola Dragon Ball Super</h1>
+
+<hr>
+<!-- Método 1: Usando el servicio directamente en el template 
+<section class="row">
+
+    <div>
+        <dragonball-character-add (newCharacter)="addCharacter($event)" />
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <dragonball-character-list listName="Listado de personajes" [characters]="characters()" />
+    </div>
+
+</section>
+
+-->
+
+<!-- Método 2: Usando el servicio inyectado -->
+
+<section class="row">
+
+    <div>
+        <dragonball-character-add (newCharacter)="dragonballService.addCharacter($event)" />
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <dragonball-character-list listName="Listado de personajes" [characters]="dragonballService.characters()" />
+    </div>
+
+</section>
