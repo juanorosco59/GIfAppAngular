@@ -1,0 +1,32 @@
+<section class="mt-5">
+
+    <table class="table table-md mt-2 w-full">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Icono</th>
+                <th>Bandera</th>
+                <th>Nombre</th>
+                <th>Capital</th>
+                <th>Población</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (item of countries(); track $index; let index = $index) {
+            <tr>
+                <td>{{ $index + 1 }}</td>
+                <td><img [src]="item.coatOfArms" class="w-10 h-10 rounded-full"></td>
+                <td><img [src]="item.flagSvg" [alt]="item.name" class="w-10 h-10 rounded-full"></td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.capital}}</td>
+                <td>{{ item.population}}</td>
+                <td><a class="link-primary cursor-pointer">Más información</a></td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+
+</section>
