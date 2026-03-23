@@ -9,9 +9,9 @@ export const routes: Routes = [
         component: HomePage,
     },
     {
-      path: 'country',
+        path: 'country',
         loadChildren: () => import('./country/country.routes').then(m => m.countryRoutes)
-    
+
     },
     {
         path: '**',

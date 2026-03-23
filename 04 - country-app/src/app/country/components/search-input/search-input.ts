@@ -9,8 +9,10 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 })
 export class SearchInput {
 
+  //Recepción de eventos
 
   placeholder = input('Buscar');
+
   //Emision de eventos
 
   custom_value = output<string>();
