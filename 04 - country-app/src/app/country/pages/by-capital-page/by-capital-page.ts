@@ -7,6 +7,7 @@ import { CountryMapper } from '../../mappers/country.mapper';
 import { Country } from '../../interfaces/country.interface';
 import { firstValueFrom, of } from 'rxjs';
 import { rxResource } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -21,9 +22,18 @@ export class ByCapitalPage {
 
   //---------------------------------Versión moderna rxResource---------------------------------
 
-  //Se usa el recurso llamado resource para hacer consumos de forma moderna y rápida
+  //Detalle para preservar los resultados
 
-  query = signal('');
+  activatedRoute = inject(ActivatedRoute);
+
+  custom_queryParam = this.activatedRoute.snapshot.queryParamMap.get('query') ?? ''
+
+  //Hacer navegación con Router
+  router = inject(Router);
+
+  //Se usa el recurso llamado resource para hacer consumos de forma moderna y rápida
+  query = signal(this.custom_queryParam);
+
 
   countryResource = rxResource({
 
@@ -32,6 +42,8 @@ export class ByCapitalPage {
     stream: ({ params }) => {
 
       if (!params.query) return of([]); // observable
+
+      this.router.navigate(['/country/by-capital'], { queryParams: { query: params.query } })
 
       return this.customeCall_countryServiceAPI
         .custom_searchByCapital(params.query);

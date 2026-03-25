@@ -1,13 +1,16 @@
 <section class="flex flex-row gap-2 mt-2">
 
-    <!--El valor value.emit(txtSearch.value) define que se 
+<!--El valor value.emit(txtSearch.value) define que se 
 tiene que enviar este valor al comoponente padre, en este caso el by-capital-page, 
 para que este pueda hacer la consulta a la api y mostrar los resultados
 -->
 
     <input type="text" class="input input-bordered mr-2 w-56" autofocus="true" 
     #txtSearch [placeholder]="placeholder()"
-        (keyup.enter)="custom_value.emit(txtSearch.value)" />
+        (keyup.enter)="custom_value.emit(txtSearch.value)" 
+        (keyup)="inputValue.set(txtSearch.value)"
+        [value] = "inputValue()"
+        />
 
     <button class="btn btn-primary" (click)="custom_value.emit(txtSearch.value)">
         Buscar

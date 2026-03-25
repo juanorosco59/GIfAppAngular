@@ -18,7 +18,10 @@
 <!--Version moderna con resources-->
 
 <country-search-input placeholder="Buscar por capital de país"
-    (custom_value)="query.set($event)"></country-search-input>
+    (custom_value)="query.set($event)"
+    [initialValue]="query()"
+    
+    ></country-search-input>
 
 @if (countryResource.error())
 {<h3><span class="text text-error">{{countryResource.error()}}</span> </h3>}

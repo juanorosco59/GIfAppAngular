@@ -4,6 +4,7 @@ import { CountryList } from "../../components/country-list/country-list";
 import { CountryServiceAPI } from '../../services/country';
 import { firstValueFrom, of, take } from 'rxjs';
 import { rxResource } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-by-country-page',
@@ -15,10 +16,18 @@ export class ByCountryPage {
 
   customeCall_countryServiceAPI = inject(CountryServiceAPI);
 
+  activatedRoute = inject(ActivatedRoute);
 
+  custom_queryParam = this.activatedRoute.snapshot.queryParamMap.get('query') ?? ''
+
+
+  //Hacer navegación con Router
+  router = inject(Router);
+
+  
   //---------------------------------Versión moderna rxResource---------------------------------
 
-  query = signal('');
+  query = signal(this.custom_queryParam);
 
   countryResource = rxResource({
 
@@ -27,6 +36,9 @@ export class ByCountryPage {
     stream: ({ params }) => {
 
       if (!params.query) return of([]); // Observable
+
+      this.router.navigate(['/country/by-country'], { queryParams: { query: params.query } })
+
 
       return this.customeCall_countryServiceAPI
         .custom_searchByCountry(params.query);

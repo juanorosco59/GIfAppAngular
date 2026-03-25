@@ -1,4 +1,6 @@
-<country-search-input placeholder="Buscar por nombre de país" (custom_value)="query.set($event)"></country-search-input>
+<country-search-input placeholder="Buscar por nombre de país" (custom_value)="query.set($event)"
+ [initialValue]="query()"
+></country-search-input>
 
 <country-list 
 

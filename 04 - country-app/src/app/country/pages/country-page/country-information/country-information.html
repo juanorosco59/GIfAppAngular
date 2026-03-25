@@ -1,0 +1,27 @@
+<section class="stats shadow flex justify-center">
+    <div class="stat place-items-center">
+        <div class="stat-title">Población</div>
+        <div class="stat-value">{{countryResourceInfo()?.population | number}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+        <div class="stat-title">Año</div>
+        <div class="stat-value text-secondary">{{currentYear()}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+        <div class="stat-title">Nombre del país</div>
+        <div class="stat-value">{{countryResourceInfo()?.name}}</div>
+    </div>
+</section>
+
+<section class="diff aspect-16/9" tabindex="0">
+    <div class="diff-item-1" role="img" tabindex="0">
+        <img alt="{{countryResourceInfo()?.name}}" src="{{countryResourceInfo()?.flagSvg}}" />
+    </div>
+    <div class="diff-item-2" role="img">
+        <img class="blur brightness-55" alt="{{countryResourceInfo()?.name}}"
+            src="{{countryResourceInfo()?.flagSvg}}" />
+    </div>
+    <div class="diff-resizer"></div>
+</section>
