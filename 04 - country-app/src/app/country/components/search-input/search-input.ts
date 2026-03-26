@@ -41,7 +41,14 @@ export class SearchInput {
     onCleanup(() => {
       clearTimeout(timeout);
     })
+    
   })
+
+
+  valor = signal<string>('');
+  debounceEffect2 = effect(() => { console.log('Effect por el secundario', this.valor()) })
+
+
 
 
 
