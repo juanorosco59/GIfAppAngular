@@ -1,0 +1,114 @@
+<div class="p-4 space-y-4">
+
+  <!-- DATE -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">DatePipe</h2>
+    <p class="text-sm opacity-70">Formatea una fecha a un formato legible.</p>
+    <p><b>Original:</b> {{ today() }}</p>
+    <p><b>Transformado:</b> {{ today() | date:'fullDate' }}</p>
+  </div>
+
+  <!-- UPPERCASE -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">UpperCasePipe</h2>
+    <p class="text-sm opacity-70">Convierte el texto a mayúsculas.</p>
+    <p><b>Original:</b> {{ text() }}</p>
+    <p><b>Transformado:</b> {{ text() | uppercase }}</p>
+  </div>
+
+  <!-- LOWERCASE -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">LowerCasePipe</h2>
+    <p class="text-sm opacity-70">Convierte el texto a minúsculas.</p>
+    <p><b>Original:</b> {{ text() }}</p>
+    <p><b>Transformado:</b> {{ text() | lowercase }}</p>
+  </div>
+
+  <!-- TITLECASE -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">TitleCasePipe</h2>
+    <p class="text-sm opacity-70">Convierte el texto a formato de título (primera letra en mayúscula).</p>
+    <p><b>Original:</b> {{ text() }}</p>
+    <p><b>Transformado:</b> {{ text() | titlecase }}</p>
+  </div>
+
+  <!-- CURRENCY -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">CurrencyPipe</h2>
+    <p class="text-sm opacity-70">Formatea un número como moneda.</p>
+    <p><b>Original:</b> {{ price() }}</p>
+    <p><b>Transformado:</b> {{ price() | currency:'USD' }}</p>
+  </div>
+
+  <!-- DECIMAL -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">DecimalPipe</h2>
+    <p class="text-sm opacity-70">Formatea números con decimales controlados.</p>
+    <p><b>Original:</b> {{ number() }}</p>
+    <p><b>Transformado:</b> {{ number() | number:'1.2-2' }}</p>
+  </div>
+
+  <!-- PERCENT -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">PercentPipe</h2>
+    <p class="text-sm opacity-70">Convierte un número a porcentaje.</p>
+    <p><b>Original:</b> {{ percent() }}</p>
+    <p><b>Transformado:</b> {{ percent() | percent }}</p>
+  </div>
+
+  <!-- i18nPlural -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">i18nPluralPipe</h2>
+    <p class="text-sm opacity-70">Muestra texto diferente según la cantidad.</p>
+    <p><b>Original:</b> {{ items().length }}</p>
+    <p><b>Transformado:</b> {{ items().length | i18nPlural: pluralMap }}</p>
+  </div>
+
+  <!-- i18nSelect -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">i18nSelectPipe</h2>
+    <p class="text-sm opacity-70">Selecciona un texto basado en un valor.</p>
+    <p><b>Original:</b> {{ gender() }}</p>
+    <p><b>Transformado:</b> {{ gender() | i18nSelect: genderMap }}</p>
+  </div>
+
+  <!-- JSON -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">JsonPipe</h2>
+    <p class="text-sm opacity-70">Convierte un objeto a formato JSON para depuración.</p>
+    <p><b>Original:</b></p>
+    <pre>{{ user() }}</pre>
+    <p><b>Transformado:</b></p>
+    <pre>{{ user() | json }}</pre>
+  </div>
+
+  <!-- KEYVALUE -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">KeyValuePipe</h2>
+    <p class="text-sm opacity-70">Permite iterar sobre propiedades de un objeto.</p>
+    <p><b>Original:</b></p>
+    <pre>{{ user() | json }}</pre>
+
+    <p><b>Transformado:</b></p>
+    <div *ngFor="let item of user() | keyvalue">
+      {{ item.key }}: {{ item.value }}
+    </div>
+  </div>
+
+  <!-- SLICE -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">SlicePipe</h2>
+    <p class="text-sm opacity-70">Extrae una porción de texto o array.</p>
+    <p><b>Original:</b> {{ text() }}</p>
+    <p><b>Transformado:</b> {{ text() | slice:0:5 }}</p>
+  </div>
+
+  <!-- ASYNC -->
+  <div class="card bg-base-200 p-4">
+    <h2 class="font-bold">AsyncPipe</h2>
+    <p class="text-sm opacity-70">Se suscribe automáticamente a promesas u observables.</p>
+    <p><b>Original:</b> Promise</p>
+    <p><b>Transformado:</b> {{ promise() | async }}</p>
+  </div>
+
+</div>
