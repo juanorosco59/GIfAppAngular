@@ -1,0 +1,25 @@
+<section>
+  <h1 class="text-2xl font-bold">
+    Resultados para <span class="text-pink-600">{{ gender() }}</span>
+  </h1>
+</section>
+<div class="grid grid-cols-2 mt-2 p-4 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+  <!-- Product-Card -->
+
+  @for (item of productResponse(); track item.id) {
+    <app-product-car
+      [imgProduct]="item.imageURL"
+      [imgTitle]="item.title"
+      [imgDescription]="item.description"
+      [imgSlug]="item.slug"
+      [imgGender]="item.gender"
+    ></app-product-car>
+  }
+</div>
+
+<app-pagination
+  [pages]="paginas()"
+  (pageToExport)="showCurrentPageImported($event)"
+  [currentPage]="this.paginationService.getCurrentPage()"
+>
+</app-pagination>

@@ -1,0 +1,16 @@
+<div class="join flex justify-center items-center mt-4 mb-10 gap-2">
+  @for (item of getPagesList(); track $index) {
+    <button
+      class="join-item btn"
+      [class.btn-primary]="item === activatePage()"
+      [routerLink]="[]"
+      [queryParams]="{ page: item }"
+      (click)="activatePage.set(item)"
+    >
+      {{ item }}
+    </button>
+  } @empty {
+    <p>No hay páginas</p>
+  }
+
+</div>

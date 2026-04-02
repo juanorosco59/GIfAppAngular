@@ -1,0 +1,21 @@
+<h1 class="text-3xl font-bold">Todos los productos</h1>
+<h2 class="text-xl font-semibold mb-5">Próximamente...</h2>
+
+<app-pagination [pages] ="productResponseAll().pages" 
+(pageToExport)="showCurrentPageImported($event)"
+[currentPage] = "currentPageAfterRouter"
+
+>  </app-pagination>
+
+<div class="grid grid-cols-2 mt-2 p-4 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+  <!-- Product-Card -->
+
+  @for (item of productResponse(); track item.id) {
+    <app-product-car
+      [imgProduct]="item.imageURL"
+      [imgTitle]="item.title"
+      [imgDescription]="item.description"
+      [imgSlug]="item.slug"
+    ></app-product-car>
+  }
+</div>

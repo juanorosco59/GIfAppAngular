@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@plugin "daisyui";
+
+
+@plugin "daisyui" {
+  themes: night, light; /* Aquí incluyes los que necesites */
+}
+
+@theme {
+  --font-montserrat: 'Montserrat', 'sans-serif';
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    src: url(/assets/fonts/montserrat-alternates/Montserrat-Light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@theme {
+  /* 1. Definir los fotogramas (keyframes) */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* 2. Crear la clase de utilidad */
+  /* Esto genera automáticamente la clase 'animate-fade-in' */
+  --animate-fade-in: fade-in 2.5s ease-out;
+}
